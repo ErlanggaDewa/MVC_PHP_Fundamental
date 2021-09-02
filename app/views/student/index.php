@@ -4,12 +4,12 @@
   <?= Flasher::getFlash() ?>
 
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary mb-4" data-mdb-toggle="modal" data-mdb-target="#addData">
+  <button type="button" class="btn btn-primary mb-4 add-button" data-mdb-toggle="modal" data-mdb-target="#add-data">
     Tambah Data
   </button>
 
   <!-- Modal -->
-  <div class="modal fade" id="addData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="add-data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -18,8 +18,9 @@
         </div>
         <div class="container mt-4">
 
-          <form method="POST" action="<?= BASE_URL ?>/student/add">
+          <form method="POST" id="form-data" action="<?= BASE_URL ?>/student/add">
             <!-- Name input -->
+            <input type="hidden" id="id" class="form-control" name="id" />
             <div class="form-outline mb-4">
               <input type="text" id="name" class="form-control" name="name" />
               <label class="form-label" for="form4Example1">Name</label>
@@ -40,7 +41,7 @@
               <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
                 Close
               </button>
-              <button type="submit" class="btn btn-primary">Tambah Data</button>
+              <button type="submit" class="btn btn-primary submit-button">Tambah Data</button>
             </div>
           </form>
 
@@ -51,11 +52,17 @@
 
   <h1>Daftar Mahasiswa</h1>
   <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-md-7">
       <ul class="list-group mt-3">
         <?php foreach ($dataBody as $data) : ?>
-          <li class="list-group-item d-flex justify-content-between align-items-start"><?= $data['name'] ?>
-            <a class="" href="<?= BASE_URL ?>/student/detail/<?= $data['id'] ?>">
+          <li class="list-group-item"><?= $data['name'] ?>
+            <a class="float-end ms-1" href="<?= BASE_URL ?>/student/delete/<?= $data['id'] ?>" onclick="return confirm('Are you sure?')">
+              <span class="badge bg-danger">Delete</span>
+            </a>
+            <a class="float-end ms-1 edit-button" href="<?= BASE_URL ?>/student" data-mdb-toggle="modal" data-mdb-target="#add-data" data-id="<?= $data['id'] ?>">
+              <span class="badge bg-success">Edit</span>
+            </a>
+            <a class="float-end ms-1" href="<?= BASE_URL ?>/student/detail/<?= $data['id'] ?>">
               <span class="badge bg-primary">Detail</span>
             </a>
           </li>

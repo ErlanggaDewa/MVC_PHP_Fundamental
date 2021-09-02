@@ -37,4 +37,33 @@ class StudentModel
     $this->conn->execute();
     return $this->conn->rowCount();
   }
+
+  public function deleteUser($id)
+  {
+    $query = "DELETE FROM {$this->dbName}.{$this->tableName} WHERE id = :id";
+    $this->conn->query($query);
+    $this->conn->bind('id', $id);
+    $this->conn->execute();
+    return $this->conn->rowCount();
+  }
+
+  public function editUser($data)
+  {
+    $query = "UPDATE {$this->dbName}.{$this->tableName} SET 
+                name = :name,
+                nim = :nim,
+                email = :email,
+                college = :college
+              WHERE id = :id";
+
+    $this->conn->query($query);
+    $this->conn->bind('id', $data['id']);
+    $this->conn->bind('name', $data['name']);
+    $this->conn->bind('nim', $data['nim']);
+    $this->conn->bind('email', $data['email']);
+    $this->conn->bind('college', $data['college']);
+
+    $this->conn->execute();
+    return $this->conn->rowCount();
+  }
 }
