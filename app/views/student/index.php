@@ -1,5 +1,8 @@
 <div class="container" style="margin-top:100px;">
 
+  <!-- flasher message to inform admin that the data was successfully or failed to be added-->
+  <?= Flasher::getFlash() ?>
+
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary mb-4" data-mdb-toggle="modal" data-mdb-target="#addData">
     Tambah Data
