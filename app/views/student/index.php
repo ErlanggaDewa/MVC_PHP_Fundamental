@@ -8,6 +8,19 @@
     Tambah Data
   </button>
 
+  <!-- Search form -->
+  <form method="POST" id="form-data" action="<?= BASE_URL ?>/student/search">
+    <div class="input-group mb-4">
+      <div class="form-outline">
+        <input type="search" id="search-keyword" class="form-control" name="search-keyword" autofocus />
+        <label class="form-label" for="form1">Search</label>
+      </div>
+      <button type="submit" class="btn btn-primary">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </form>
+
   <!-- Modal -->
   <div class="modal fade" id="add-data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -49,6 +62,8 @@
       </div>
     </div>
   </div>
+
+
 
   <h1>Daftar Mahasiswa</h1>
   <div class="row">

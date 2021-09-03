@@ -47,4 +47,11 @@ class Student extends Controller
   {
     echo json_encode($this->model('StudentModel')->getUser($_POST['id']));
   }
+
+  public function search()
+  {
+    $dataBody = $this->model('StudentModel')->searchUser($_POST['search-keyword']);
+    $dataHeader['title'] = 'student/search';
+    $this->view('student/index', $dataHeader, $dataBody);
+  }
 }

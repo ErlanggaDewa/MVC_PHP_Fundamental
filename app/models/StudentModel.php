@@ -66,4 +66,12 @@ class StudentModel
     $this->conn->execute();
     return $this->conn->rowCount();
   }
+
+  public function searchUser($keyword)
+  {
+    $this->conn->query("SELECT * FROM {$this->dbName}.{$this->tableName} WHERE name LIKE :keyword");
+    $this->conn->bind("keyword", "%$keyword%");
+    $this->conn->execute();
+    return $this->conn->resultSet();
+  }
 }
