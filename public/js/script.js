@@ -16,7 +16,7 @@ $(function () {
   $(".edit-button").on("click", function () {
     $(".modal-title").html("Edit data");
     $(".submit-button").html("Edit data");
-    $("#form-data").attr(
+    $("#form-add-edit").attr(
       "action",
       "http://localhost/MVC_PHP_Fundamental/public/student/edit"
     );

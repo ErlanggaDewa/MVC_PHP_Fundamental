@@ -31,7 +31,7 @@
         </div>
         <div class="container mt-4">
 
-          <form method="POST" id="form-data" action="<?= BASE_URL ?>/student/add">
+          <form method="POST" id="form-add-edit" action="<?= BASE_URL ?>/student/add">
             <!-- Name input -->
             <input type="hidden" id="id" class="form-control" name="id" />
             <div class="form-outline mb-4">
